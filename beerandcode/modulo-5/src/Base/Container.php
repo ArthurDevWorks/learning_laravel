@@ -8,10 +8,10 @@ use ReflectionClass;
 class Container implements ContainerInterface
 {
 
+  protected static $instance;
+
   //Guarda os dados das classes que vao ser carregadas pelo container
-  protected array $services = [
-    'id' => 'class'
-  ];
+  protected array $services = [];
 
   //Buscas os dados das classes e cria as instancias com o getInstance
   public function get(string $id):mixed{
@@ -22,6 +22,13 @@ class Container implements ContainerInterface
   //Verifica se ja existe a classe carregadas no array
   public function has(string $id):bool{
     return array_key_exists($id,$this->services);
+  }
+
+  protected function getContainer(): Container{
+    if(is_null(static::$instance)){
+      static::$instance = new static;
+    }
+    return static::$instance;
   }
 
   //Verifica se o serviço solicitado existe, caso nao exista ele cria uma instancia sem dados,
