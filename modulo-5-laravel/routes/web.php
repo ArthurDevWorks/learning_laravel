@@ -13,7 +13,7 @@ Route::get('/', function () {
 });
 
 Route::get('/learn-container', function(StripePaymentProvider $paymentProvider){
-    $checkout = new Checkout('arthurparente@gmail.com', 380);
+    // $checkout = new Checkout('arthurparente@gmail.com', 380);
 
-    return $checkout->handle($paymentProvider);
+    // return $checkout->handle($paymentProvider);
 });
