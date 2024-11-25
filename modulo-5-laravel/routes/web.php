@@ -1,19 +1,14 @@
 <?php
 
-use App\Services\Checkout;
-use App\Services\Utils\Http;
-use App\Services\Utils\ThirdParty;
 use Illuminate\Support\Facades\Route;
-use App\Services\PaymentProviders\CieloPaymentProvider;
-use App\Services\PaymentProviders\PaddlePaymentProvider;
-use App\Services\PaymentProviders\StripePaymentProvider;
+use Facades\App\Services\PaymentProviders\PaddlePaymentProvider;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/learn-container', function(StripePaymentProvider $paymentProvider){
-    // $checkout = new Checkout('arthurparente@gmail.com', 380);
+Route::get('/learn-container', function(){
+    // return Stripe::charge('arthur@beerandcode.com.br', 730);
 
-    // return $checkout->handle($paymentProvider);
+    return PaddlePaymentProvider::charge('arthur@beerandcode.com.br', 730);
 });

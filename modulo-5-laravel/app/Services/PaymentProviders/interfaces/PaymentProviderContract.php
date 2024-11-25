@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\PaymentProviders\Interfaces;
+namespace App\Services\PaymentProviders\interfaces;
 
 use App\Services\Utils\Http;
 
