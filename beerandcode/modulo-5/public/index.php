@@ -26,4 +26,4 @@ require __DIR__.'/../vendor/autoload.php';
   //$provider = new StripePaymentProvider(new Http(new ThirdParty));
 
   //Usa a Facade que foi implementada
-  echo Stripe::change('arthur@beerandcode.com', 400);
+  echo Stripe::charge('arthur@beerandcode.com', 400);

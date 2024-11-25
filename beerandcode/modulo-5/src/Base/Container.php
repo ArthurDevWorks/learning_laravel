@@ -24,7 +24,7 @@ class Container implements ContainerInterface
     return array_key_exists($id,$this->services);
   }
 
-  protected function getContainer(): Container{
+  public static function getContainer(): Container{
     if(is_null(static::$instance)){
       static::$instance = new static;
     }
@@ -71,4 +71,5 @@ class Container implements ContainerInterface
     $target = $target ?? $key;
     $this->services[$key] = new ReflectionClass($target);
   }
+
 }
