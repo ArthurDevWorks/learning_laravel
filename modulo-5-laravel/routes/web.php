@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CieloController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 
-//Esse Facades antes criar em cache uma facade automatica
+//Essa Facades antes criar em cache uma facade automatica
 use Facades\App\Services\PaymentProviders\PaddlePaymentProvider;
 
 Route::get('/', function () {
@@ -17,3 +19,5 @@ Route::get('/learn-container', function(){
 
 
 Route::get('strip',[StripeController::class,'index']);
+
+Route::get('cielo',[CieloController::class,'index']);

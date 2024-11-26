@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 
 class CieloController extends Controller
 {
-   public function index(PaymentProviderContract $paymentProvider){
+   public function __construct(private PaymentProviderContract $paymentProvider)
+   {}
+
+   public function index(){
     $checkout = new Checkout('arthur@beerandcode.com.br',820);
-    return $checkout->handle($paymentProvider);
+
+    return $checkout->handle($this->paymentProvider);
    }
 }
